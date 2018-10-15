@@ -1,0 +1,13 @@
+    <h1>Assalamu alaikum</h1>
+    <h2>Welcome to you!</h2>
+    The following is a list of the latest questions:
+{% if latest_question_list %}
+    <ul>
+    {% for question in latest_question_list %}
+        <li>{{question.pub_date}}:&nbsp;&nbsp;
+            <a href="{% url 'polls:detail' question.id %}">{{ question.question_text }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No polls are available.</p>
+{% endif %}
